@@ -5,7 +5,8 @@ import StandardMessageForm from "../customMessageForms/standardMessageForm";
 
 const Chat = () => {
     const chatProps = useMultiChatLogic(
-        import.meta.env.VITE_PROJECT_ID,
+        // import.meta.env.VITE_PROJECT_ID,
+        "39ba46f5-4cd8-4375-a84e-81d60135a9fc",
         "John@1234",
         "1234"
     )
@@ -16,7 +17,8 @@ const Chat = () => {
             style={{height: "100vh"}}
             renderChatHeader={(chat) => <Header chat={chat}/>}
             renderMessageForm={(props) => {
-                <StandardMessageForm props={props} activeChat={chatProps.chat} />
+                console.log(chatProps.chat);
+              return  <StandardMessageForm props={props} activeChat={chatProps.chat} />
             }}
         />
     </div>;
