@@ -9,9 +9,8 @@ import AiAssist from '../customMessageForms/AiAssist';
 const Chat = () => {
     const chatProps = useMultiChatLogic(
         // import.meta.env.VITE_PROJECT_ID,
-        "39ba46f5-4cd8-4375-a84e-81d60135a9fc",
-        "John@1234",
-        "1234"
+        // user
+        // secret
     )
     return <div style={{flexBasis: "100%"}}>
         <MultiChatSocket {...chatProps} />
