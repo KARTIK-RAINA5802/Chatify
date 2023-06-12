@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
 import { Configuration, OpenAIApi } from "openai";
+import openAiRoutes from "./routes/openai.js";
 
 /* Configurations */
 dotenv.config();
@@ -18,13 +19,14 @@ app.use(bodyParser.urlencoded({limit: "30mb", extended: true})); /* This line ad
 app.use(cors()); /* This line adds the CORS middleware, which enables Cross-Origin Resource Sharing. It allows your Express app to respond to requests from different domains or origins. */
 
 
-/* Open AI Configuration */
-const { Configuration, OpenAIApi } = require("openai");
-
+/* Open Ai Configuration */
 const configuration = new Configuration({
   apiKey: process.env.OPEN_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
+export const openai = new OpenAIApi(configuration);
+
+/* Routes */
+app.use('/openai', openAiRoutes);
 
 /* Server Setup */
 const PORT = process.env.PORT || 3000;
